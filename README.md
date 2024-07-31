@@ -8,9 +8,9 @@ Kittea is a remote management tool providing end users a way to manage their fil
 
 ## Roadmap
 
-- [ ] Proof of Concept
+- [x] Proof of Concept
 - [ ] PAM Authentication
-- [ ] File browsing
+- [x] File browsing
 - [ ] File management (Copy, Move, Rename, Mass Rename, Search, etc...)
 - [ ] Vitals monitoring (CPU, GPU, Memory, Drives...)
 - [ ] Basic file viewing, text, images, spreadsheets
