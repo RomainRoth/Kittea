@@ -1,6 +1,6 @@
 <template>
     <gdiWindow>
-        <div class="flex flex-col w-full h-full pt-8 px-3">
+        <div class="flex flex-col w-full h-full pt-8 pb-2 px-3">
             <div>
                 <input type="text" class="border w-full px-2" value="/" ref="uriInput" @keydown="_uriKeydown($event)" />
             </div>
@@ -19,8 +19,13 @@
                     </template>
                 </div>
             </div>
-            <div class="border-t">
-                // TODO : Status bar here
+            <div class="border-t text-xs">
+                <template v-if="directoryItems.length > 1">
+                    {{ t('itemsCount', { count: directoryItems.length }) }}
+                </template>
+                <template v-else>
+                    {{ t('itemCount', { count: directoryItems.length }) }}
+                </template>
             </div>
         </div>
     </gdiWindow>
@@ -38,10 +43,21 @@
             gdiWindow,
             gdiBadge
         },
+        setup() {
+            const { t } = useI18n({
+                useScope: 'local'
+            });
+            return { t };
+        },
         data() {
             return {
                 currentPath: '/',
-                directoryItems: [] as IDirectoryItem[] | null
+                privateDirectoryItems: [] as IDirectoryItem[] | null
+            }
+        },
+        computed: {
+            directoryItems() : IDirectoryItem[] {
+                return this.privateDirectoryItems ?? [];
             }
         },
         methods: {
@@ -57,7 +73,7 @@
             },
             async _ls(_path : string) {
                 try{
-                    this.directoryItems = await $fetch('/api/ls', {
+                    this.privateDirectoryItems = await $fetch('/api/ls', {
                         method: 'POST',
                         body: JSON.stringify({ path: _path }),
                         headers: {
@@ -78,3 +94,20 @@
 <style scoped>
 
 </style>
+
+<i18n lang="yaml">
+    {
+        en: {
+            itemCount: '{count} item',
+            itemsCount: '{count} items',
+            selectedItemCount: '{count} selected item',
+            selectedItemsCount: '{count} selected items'
+        },
+        fr: {
+            itemCount: '{count} element',
+            itemsCoount: '{count} elements',
+            selectedItemCount: '{count} élément sélectionné',
+            selectItemsCount: '{count} éléments sélectionnés'
+        }
+    }
+</i18n>
