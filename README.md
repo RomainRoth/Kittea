@@ -1,3 +1,21 @@
+![kittea logo](/public/kittea.png)
+
+# Kittea
+
+## What is it ?
+
+Kittea is a remote management tool providing end users a way to manage their files, monitor vitals and run commands using a web interface in Y2K aesthetic style.
+
+## Roadmap
+
+- [ ] Proof of Concept
+- [ ] PAM Authentication
+- [ ] File browsing
+- [ ] File management (Copy, Move, Rename, Mass Rename, Search, etc...)
+- [ ] Vitals monitoring (CPU, GPU, Memory, Drives...)
+- [ ] Basic file viewing, text, images, spreadsheets
+- [ ] Basic file editing
+
 # Nuxt 3 Minimal Starter
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.

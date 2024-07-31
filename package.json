@@ -10,13 +10,23 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxt/icon": "^1.4.0",
+    "@nuxtjs/i18n": "^8.3.3",
+    "@nuxtjs/tailwindcss": "^6.12.1",
+    "@pinia/nuxt": "^0.5.2",
+    "@vueuse/head": "^2.0.0",
+    "floating-vue": "^5.2.2",
     "nuxt": "^3.12.4",
-    "vue": "latest"
+    "pinia": "^2.2.0",
+    "vue": "^3.4.34"
   },
   "version": "1.0.0",
   "description": "Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.",
   "main": "index.js",
-  "devDependencies": {},
   "author": "Romain Roth",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@nuxtjs/eslint-module": "^4.1.0",
+    "eslint": "^9.8.0"
+  }
 }
