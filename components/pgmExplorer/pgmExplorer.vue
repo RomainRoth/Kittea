@@ -1,9 +1,6 @@
 <template>
     <gdiWindow>
         <div class="flex flex-col w-full h-full pt-8 pb-2 px-3">
-            <div>
-                <input type="text" class="border w-full px-2" value="/" ref="uriInput" @keydown="_uriKeydown($event)" />
-            </div>
             <div class="gdiToolbar">
                 &nbsp;
                 <button class="gdiToolbarButton" v-tooltip="'up'">
@@ -24,10 +21,18 @@
                     <Icon name="mdi:folder-open"  class="text-3xl mt-1.5 ml-2 -rotate-12 text-white" />
                 </button>
                 &nbsp;
+                <input type="text" class="border w-full px-2" value="/" ref="uriInput" @keydown="_uriKeydown($event)" />
+                <button class="gdiToolbarButton" v-tooltip="'go'">
+                    <Icon name="mdi:arrow-up-bold"  class="text-2xl text-white" />
+                </button>
+                <input type="text" class="border w-64 px-2" ref="searchInput" placeholder="search" />
+                <button class="gdiToolbarButton" v-tooltip="'search'">
+                    <Icon name="mdi:search"  class="text-2xl text-white" />
+                </button>
             </div>
             <div class="flex flex-grow overflow-hidden">
                 <div class="border-r w-40">...</div>
-                <div class="flex-grow overflow-scroll">
+                <div class="flex-grow text-sm flex flex-col gap-y-0.5 overflow-scroll">
                     <template v-for="(directoryItem, index) in directoryItems ?? []" :key="index">
                         <div class="flex gap-1 items-center px-1" @dblclick="_itemDblClick($event, directoryItem)" draggable="true">
                             <div>
