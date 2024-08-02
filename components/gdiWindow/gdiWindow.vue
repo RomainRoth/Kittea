@@ -114,24 +114,22 @@
         @apply bg-white border-2 rounded-xl;
     }
     .gdiMarble {
-        background: radial-gradient(farthest-corner at 50% 80%, rgba(176,238,245,1), rgba(134,197,221,1));
-        @apply rounded-full h-4 w-4 relative -rotate-45 hover:animate-pulse flex items-center justify-center shrink-0;
+        background: radial-gradient(farthest-corner at 80% 80%, rgba(176,238,245,1), rgba(134,197,221,1));
+        @apply rounded-full h-4 w-4 relative hover:animate-pulse flex items-center justify-center shrink-0;
+    }
+    .gdiMarble:hover {
+        background: radial-gradient(farthest-corner at 80% 80%, #cafff6, #2cddb5);
     }
 
     .gdiMarble > span {
-        @apply block rotate-45;
+        @apply block;
     }
     
     .gdiMarble::after {
         content: "";
-        position: absolute;
-        border-radius: 100px;
-        width: 100%;
-        height: 100%;
         background-image: linear-gradient(180deg,rgba(250, 250, 255, 1) 0%,rgba(250, 250, 255, 0.7) 50%,rgba(0, 0, 0, 0) 100%);
-        top: -4px;
-        left: 0px;
         -moz-transform: scale(0.50, 0.4);
         -webkit-transform: scale(0.50, 0.4);
+        @apply absolute rounded-full w-full h-full -top-1 left-0;
     }
 </style>
